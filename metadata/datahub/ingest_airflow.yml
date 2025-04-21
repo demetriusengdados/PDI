@@ -1,0 +1,10 @@
+source:
+  type: airflow
+  config:
+    base_url: http://localhost:8080
+    username: admin
+    password: admin
+sink:
+  type: datahub-rest
+  config:
+    server: http://localhost:8080

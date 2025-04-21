@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: fct_transacoes
+    description: "Fato de transações financeiras"
+    columns:
+      - name: id_transacao
+        tests:
+          - unique
+          - not_null
+
+      - name: valor
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "valor >= 0"
+
+      - name: status
+        tests:
+          - accepted_values:
+              values: ["pendente", "aprovada", "rejeitada", "estornada"]

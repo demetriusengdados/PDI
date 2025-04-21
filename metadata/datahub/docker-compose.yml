@@ -1,0 +1,18 @@
+version: '2.4'
+services:
+  datahub-gms:
+    image: acryldata/datahub-gms:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - DATAHUB_ANALYTICS_ENABLED=false
+
+  datahub-frontend:
+    image: acryldata/datahub-frontend-react:latest
+    depends_on:
+      - datahub-gms
+    ports:
+      - "9002:9002"
+    environment:
+      - DATAHUB_GMS_HOST=datahub-gms
+      - DATAHUB_GMS_PORT=8080

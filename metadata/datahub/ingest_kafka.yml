@@ -1,0 +1,11 @@
+source:
+  type: kafka
+  config:
+    connection:
+      bootstrap: localhost:9092
+    schema_registry_url: http://localhost:8081
+    consumer_group_id: datahub
+sink:
+  type: datahub-rest
+  config:
+    server: http://localhost:8080

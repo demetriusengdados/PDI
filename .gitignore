@@ -1,0 +1,85 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Airflow
+airflow.db
+logs/
+dags/__pycache__/
+*.airflow
+*.log
+
+# Spark/EMR
+.metastore_db/
+derby.log
+spark-warehouse/
+
+# DBT
+dbt_modules/
+target/
+dbt_packages/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.crc
+*.backup
+
+# Databricks
+*.dbc
+.dbx/
+.dbc.config.json
+
+# Notebooks
+.ipynb_checkpoints/
+*.egg-info/
+*.eggs/
+*.ipynb
+
+# Environment
+.env
+.env.*
+.envrc
+.venv/
+venv/
+env/
+*.env.json
+
+# Kafka
+kafka-logs/
+connect-offsets/
+connect-statuses/
+connect-configs/
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs & temp
+*.log
+*.tmp
+*.bak
+*.out
+
+# Data dumps
+*.csv
+*.parquet
+*.orc
+*.avro
+*.json
+*.zip
+*.gz
+*.tar
+
+# Docker
+*.pid
+docker-compose.override.yml
+
+# Jupyter
+profile_default/
+*.nbconvert.ipynb
