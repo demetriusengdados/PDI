@@ -28,12 +28,24 @@ def processar_dados_industriais(dados):
     return None
 
 def enviar_para_nuvem(dados_json):
-    """Envia os dados processados para a nuvem IoT."""
     if dados_json:
-        print(f"Enviando dados industriais para a nuvem: {dados_json}")
-        # Use as bibliotecas do seu provedor de nuvem IoT aqui.
+        enviar_via_mqtt(dados_json)
+
+        # Substitua com sua connection string real do Azure
+        connection_string = "HostName=xxx.azure-devices.net;DeviceId=xxx;SharedAccessKey=xxx"
+        enviar_para_azure(dados_json, connection_string)
+
+        # Parâmetros da AWS
+        endpoint = "xxxx-ats.iot.us-east-1.amazonaws.com"
+        port = 8883
+        cert_path = "cert.pem"
+        key_path = "private.key"
+        root_ca_path = "AmazonRootCA1.pem"
+        topic = "industria/iot"
+        enviar_para_aws(dados_json, endpoint, port, cert_path, key_path, root_ca_path, topic)
     else:
-        print("Nenhum dado industrial para enviar para a nuvem.")
+        print("Nenhum dado para enviar.")
+
 
 if __name__ == "__main__":
     while True:
