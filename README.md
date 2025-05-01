@@ -137,7 +137,58 @@ Executar Terraform
 cd terraform/aws
 terraform init && terraform apply
 
-👥 Contribuindo
+# 🌐 Projeto IoT Industrial com Profinet, MQTT e Armazenamento em Banco
+
+Este projeto simula um ambiente de automação industrial com sensores conectados a uma rede **Profinet**, enviando dados para a **nuvem** via **MQTT**, e armazenando esses dados em um banco de dados local **SQLite**.
+
+---
+
+## 🔧 Tecnologias e Bibliotecas Usadas
+
+- Python 3.10+
+- `paho-mqtt` – Envio/recebimento de dados via MQTT
+- `sqlite3` – Armazenamento local dos dados IoT
+- `json`, `datetime`, `time` – Processamento e formatação
+- Broker público: [HiveMQ](https://broker.hivemq.com)
+
+---
+
+## 📂 Estrutura
+
+📁 projeto-iot-industrial/ ├── dispositivo_iot.py # Simula dados e envia para MQTT ├── nuvem_com_banco.py # Recebe dados MQTT e salva no SQLite ├── dados_iot.db # Banco de dados gerado ├── requirements.txt # Dependências (paho-mqtt) └── README.md
+
+---
+
+## ▶️ Como executar
+
+### 1. Instale as dependências:
+```bash
+pip install paho-mqtt
+
+Execute o script de nuvem (servidor):
+python nuvem_com_banco.py
+
+Em outro terminal, execute o script do dispositivo simulador:
+python dispositivo_iot.py
+
+💾 Banco de dados
+Os dados são armazenados em dados_iot.db com a seguinte estrutura:
+
+id	temperatura	umidade	timestamp_dispositivo	recebido_na_nuvem
+
+🔜 Próximos passos
+Dashboard com Streamlit para visualização em tempo real
+
+Alertas por e-mail/Telegram
+
+Migração para banco de dados em nuvem (PostgreSQL, MongoDB, etc.)
+
+Integração com Azure IoT Hub e AWS IoT Core
+
+
+🤝 Contribuição
+Pull requests são bem-vindos! Sinta-se à vontade para colaborar.
+
 Fork o repositório
 
 Crie sua branch com sua feature: git checkout -b minha-feature
@@ -147,3 +198,6 @@ Commit suas mudanças: git commit -m 'feat: adiciona nova DAG de ingestão'
 Push para a branch: git push origin minha-feature
 
 Crie um Pull Request
+
+📫 Contato
+Demetrius Magela da Mata - archdataconsultoria@gmail.com
