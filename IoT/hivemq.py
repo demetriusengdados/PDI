@@ -8,7 +8,7 @@ def enviar_via_mqtt(dados_json):
         client.connect(broker, 1883, 60)
         client.loop_start()
         client.publish(topic, dados_json)
-        print("📤 Dados enviados via MQTT.")
+        print("Dados enviados via MQTT.")
         client.loop_stop()
     except Exception as e:
         print(f"Erro MQTT: {e}")
