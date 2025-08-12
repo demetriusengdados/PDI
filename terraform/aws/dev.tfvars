@@ -1,3 +1,4 @@
+# Terraform variables for AWS Dev environment
 aws_region   = "us-east-1"
 aws_profile  = "default"
 
@@ -36,4 +37,4 @@ default_tags = {
   Environment = "dev"
   Owner       = "DataTeam"
   CostCenter  = "DEV-001"
-}
+} 
